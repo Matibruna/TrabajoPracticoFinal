@@ -124,6 +124,10 @@
             this.rbSDN = new System.Windows.Forms.RadioButton();
             this.rbSatisfacerDemanda = new System.Windows.Forms.RadioButton();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txtDemandaAcumulada = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.txtRosasVendidasCem = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.gananciasPromedio = new System.Windows.Forms.TextBox();
@@ -143,9 +147,9 @@
             this.Columna10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columna11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columna12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RosasVendidasCementerioAcumuladas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DemandaAcumulada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label44 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.txtRosasVendidasCem = new System.Windows.Forms.TextBox();
             this.panelDiasSoleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ds4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds3)).BeginInit();
@@ -191,9 +195,9 @@
             // 
             // btnSimulacion
             // 
-            this.btnSimulacion.Location = new System.Drawing.Point(422, 12);
+            this.btnSimulacion.Location = new System.Drawing.Point(654, 109);
             this.btnSimulacion.Name = "btnSimulacion";
-            this.btnSimulacion.Size = new System.Drawing.Size(246, 92);
+            this.btnSimulacion.Size = new System.Drawing.Size(323, 92);
             this.btnSimulacion.TabIndex = 1;
             this.btnSimulacion.Text = "Iniciar Simulacion";
             this.btnSimulacion.UseVisualStyleBackColor = true;
@@ -289,11 +293,6 @@
             // d4
             // 
             this.d4.Location = new System.Drawing.Point(85, 116);
-            this.d4.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             this.d4.Name = "d4";
             this.d4.Size = new System.Drawing.Size(76, 23);
             this.d4.TabIndex = 13;
@@ -332,11 +331,6 @@
             // d2
             // 
             this.d2.Location = new System.Drawing.Point(85, 58);
-            this.d2.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             this.d2.Name = "d2";
             this.d2.Size = new System.Drawing.Size(76, 23);
             this.d2.TabIndex = 12;
@@ -384,11 +378,6 @@
             // d3
             // 
             this.d3.Location = new System.Drawing.Point(85, 87);
-            this.d3.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             this.d3.Name = "d3";
             this.d3.Size = new System.Drawing.Size(76, 23);
             this.d3.TabIndex = 11;
@@ -411,11 +400,6 @@
             // d1
             // 
             this.d1.Location = new System.Drawing.Point(85, 29);
-            this.d1.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             this.d1.Name = "d1";
             this.d1.Size = new System.Drawing.Size(76, 23);
             this.d1.TabIndex = 10;
@@ -877,7 +861,7 @@
             this.panel1.Controls.Add(this.tpDias);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label16);
-            this.panel1.Location = new System.Drawing.Point(1095, 117);
+            this.panel1.Location = new System.Drawing.Point(1095, 333);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(402, 107);
             this.panel1.TabIndex = 5;
@@ -946,7 +930,7 @@
             this.tpDias.Enabled = false;
             this.tpDias.Location = new System.Drawing.Point(260, 72);
             this.tpDias.Name = "tpDias";
-            this.tpDias.Size = new System.Drawing.Size(100, 23);
+            this.tpDias.Size = new System.Drawing.Size(101, 23);
             this.tpDias.TabIndex = 3;
             this.tpDias.Text = "1";
             this.tpDias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -958,21 +942,16 @@
             this.panel2.Controls.Add(this.label20);
             this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.label18);
-            this.panel2.Location = new System.Drawing.Point(1095, 12);
+            this.panel2.Location = new System.Drawing.Point(1172, 235);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(262, 92);
+            this.panel2.Size = new System.Drawing.Size(325, 92);
             this.panel2.TabIndex = 6;
             // 
             // docenasPorPedido
             // 
-            this.docenasPorPedido.Location = new System.Drawing.Point(134, 58);
-            this.docenasPorPedido.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
+            this.docenasPorPedido.Location = new System.Drawing.Point(183, 58);
             this.docenasPorPedido.Name = "docenasPorPedido";
-            this.docenasPorPedido.Size = new System.Drawing.Size(100, 23);
+            this.docenasPorPedido.Size = new System.Drawing.Size(101, 23);
             this.docenasPorPedido.TabIndex = 12;
             this.docenasPorPedido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.docenasPorPedido.Value = new decimal(new int[] {
@@ -983,14 +962,14 @@
             // 
             // precioPedido
             // 
-            this.precioPedido.Location = new System.Drawing.Point(134, 29);
+            this.precioPedido.Location = new System.Drawing.Point(183, 29);
             this.precioPedido.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.precioPedido.Name = "precioPedido";
-            this.precioPedido.Size = new System.Drawing.Size(100, 23);
+            this.precioPedido.Size = new System.Drawing.Size(101, 23);
             this.precioPedido.TabIndex = 11;
             this.precioPedido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.precioPedido.Value = new decimal(new int[] {
@@ -1011,7 +990,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(21, 33);
+            this.label19.Location = new System.Drawing.Point(21, 31);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(111, 15);
             this.label19.TabIndex = 2;
@@ -1053,9 +1032,9 @@
             this.panel3.Controls.Add(this.ventaPrecioUnitario);
             this.panel3.Controls.Add(this.label22);
             this.panel3.Controls.Add(this.label23);
-            this.panel3.Location = new System.Drawing.Point(744, 12);
+            this.panel3.Location = new System.Drawing.Point(1172, 109);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(299, 120);
+            this.panel3.Size = new System.Drawing.Size(325, 120);
             this.panel3.TabIndex = 6;
             // 
             // txtPrecioVentaCementerio
@@ -1066,9 +1045,9 @@
             0,
             0,
             65536});
-            this.txtPrecioVentaCementerio.Location = new System.Drawing.Point(180, 58);
+            this.txtPrecioVentaCementerio.Location = new System.Drawing.Point(183, 58);
             this.txtPrecioVentaCementerio.Name = "txtPrecioVentaCementerio";
-            this.txtPrecioVentaCementerio.Size = new System.Drawing.Size(108, 23);
+            this.txtPrecioVentaCementerio.Size = new System.Drawing.Size(101, 23);
             this.txtPrecioVentaCementerio.TabIndex = 14;
             this.txtPrecioVentaCementerio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrecioVentaCementerio.Value = new decimal(new int[] {
@@ -1094,9 +1073,9 @@
             0,
             0,
             65536});
-            this.costoFaltanteUnitario.Location = new System.Drawing.Point(180, 87);
+            this.costoFaltanteUnitario.Location = new System.Drawing.Point(183, 87);
             this.costoFaltanteUnitario.Name = "costoFaltanteUnitario";
-            this.costoFaltanteUnitario.Size = new System.Drawing.Size(108, 23);
+            this.costoFaltanteUnitario.Size = new System.Drawing.Size(101, 23);
             this.costoFaltanteUnitario.TabIndex = 12;
             this.costoFaltanteUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.costoFaltanteUnitario.Value = new decimal(new int[] {
@@ -1116,14 +1095,19 @@
             // 
             // ventaPrecioUnitario
             // 
-            this.ventaPrecioUnitario.Location = new System.Drawing.Point(180, 29);
+            this.ventaPrecioUnitario.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.ventaPrecioUnitario.Location = new System.Drawing.Point(183, 29);
             this.ventaPrecioUnitario.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.ventaPrecioUnitario.Name = "ventaPrecioUnitario";
-            this.ventaPrecioUnitario.Size = new System.Drawing.Size(108, 23);
+            this.ventaPrecioUnitario.Size = new System.Drawing.Size(101, 23);
             this.ventaPrecioUnitario.TabIndex = 10;
             this.ventaPrecioUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ventaPrecioUnitario.Value = new decimal(new int[] {
@@ -1414,15 +1398,53 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.txtDemandaAcumulada);
+            this.panel7.Controls.Add(this.label49);
             this.panel7.Controls.Add(this.txtRosasVendidasCem);
             this.panel7.Controls.Add(this.label48);
             this.panel7.Controls.Add(this.label34);
             this.panel7.Controls.Add(this.label21);
             this.panel7.Controls.Add(this.gananciasPromedio);
-            this.panel7.Location = new System.Drawing.Point(422, 110);
+            this.panel7.Location = new System.Drawing.Point(654, 207);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(323, 122);
+            this.panel7.Size = new System.Drawing.Size(323, 148);
             this.panel7.TabIndex = 8;
+            // 
+            // txtDemandaAcumulada
+            // 
+            this.txtDemandaAcumulada.Enabled = false;
+            this.txtDemandaAcumulada.Location = new System.Drawing.Point(250, 109);
+            this.txtDemandaAcumulada.Name = "txtDemandaAcumulada";
+            this.txtDemandaAcumulada.Size = new System.Drawing.Size(70, 23);
+            this.txtDemandaAcumulada.TabIndex = 5;
+            this.txtDemandaAcumulada.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(0, 112);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(156, 15);
+            this.label49.TabIndex = 4;
+            this.label49.Text = "Demanda promedio por dia:";
+            // 
+            // txtRosasVendidasCem
+            // 
+            this.txtRosasVendidasCem.Enabled = false;
+            this.txtRosasVendidasCem.Location = new System.Drawing.Point(250, 80);
+            this.txtRosasVendidasCem.Name = "txtRosasVendidasCem";
+            this.txtRosasVendidasCem.Size = new System.Drawing.Size(70, 23);
+            this.txtRosasVendidasCem.TabIndex = 3;
+            this.txtRosasVendidasCem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(0, 83);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(219, 15);
+            this.label48.TabIndex = 2;
+            this.label48.Text = "Promedio Rosas Vendidas a Cementerio:";
             // 
             // label34
             // 
@@ -1436,19 +1458,20 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(0, 7);
+            this.label21.Location = new System.Drawing.Point(0, 18);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(59, 15);
+            this.label21.Size = new System.Drawing.Size(67, 15);
             this.label21.TabIndex = 1;
-            this.label21.Text = "Resultado";
+            this.label21.Text = "Resultados:";
             // 
             // gananciasPromedio
             // 
             this.gananciasPromedio.Enabled = false;
-            this.gananciasPromedio.Location = new System.Drawing.Point(217, 48);
+            this.gananciasPromedio.Location = new System.Drawing.Point(250, 48);
             this.gananciasPromedio.Name = "gananciasPromedio";
             this.gananciasPromedio.Size = new System.Drawing.Size(70, 23);
             this.gananciasPromedio.TabIndex = 0;
+            this.gananciasPromedio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dgv
             // 
@@ -1470,7 +1493,9 @@
             this.Columna14,
             this.Columna10,
             this.Columna11,
-            this.Columna12});
+            this.Columna12,
+            this.RosasVendidasCementerioAcumuladas,
+            this.DemandaAcumulada});
             this.dgv.Location = new System.Drawing.Point(12, 446);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
@@ -1606,31 +1631,27 @@
             this.Columna12.ReadOnly = true;
             this.Columna12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // RosasVendidasCementerioAcumuladas
+            // 
+            this.RosasVendidasCementerioAcumuladas.HeaderText = "Rosas Vendidas a Cementerio Acumuladas";
+            this.RosasVendidasCementerioAcumuladas.Name = "RosasVendidasCementerioAcumuladas";
+            this.RosasVendidasCementerioAcumuladas.ReadOnly = true;
+            this.RosasVendidasCementerioAcumuladas.Width = 150;
+            // 
+            // DemandaAcumulada
+            // 
+            this.DemandaAcumulada.HeaderText = "Demanda Acumulada";
+            this.DemandaAcumulada.Name = "DemandaAcumulada";
+            this.DemandaAcumulada.ReadOnly = true;
+            // 
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(1404, 20);
+            this.label44.Location = new System.Drawing.Point(1399, 20);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(180, 15);
             this.label44.TabIndex = 9;
             this.label44.Text = "Demanda expresada en docenas:";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(0, 83);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(214, 15);
-            this.label48.TabIndex = 2;
-            this.label48.Text = "Promedio rosas vendidas a cementerio:";
-            // 
-            // txtRosasVendidasCem
-            // 
-            this.txtRosasVendidasCem.Enabled = false;
-            this.txtRosasVendidasCem.Location = new System.Drawing.Point(217, 80);
-            this.txtRosasVendidasCem.Name = "txtRosasVendidasCem";
-            this.txtRosasVendidasCem.Size = new System.Drawing.Size(70, 23);
-            this.txtRosasVendidasCem.TabIndex = 3;
             // 
             // Main
             // 
@@ -1797,6 +1818,17 @@
         private System.Windows.Forms.NumericUpDown dn3;
         private System.Windows.Forms.NumericUpDown dn2;
         private System.Windows.Forms.NumericUpDown dn1;
+        private System.Windows.Forms.NumericUpDown ds4;
+        private System.Windows.Forms.NumericUpDown ds3;
+        private System.Windows.Forms.NumericUpDown ds2;
+        private System.Windows.Forms.NumericUpDown ds1;
+        private System.Windows.Forms.NumericUpDown pdn1;
+        private System.Windows.Forms.NumericUpDown pdn5;
+        private System.Windows.Forms.NumericUpDown pdn4;
+        private System.Windows.Forms.NumericUpDown pdn3;
+        private System.Windows.Forms.NumericUpDown pdn2;
+        private System.Windows.Forms.TextBox txtRosasVendidasCem;
+        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna15;
@@ -1812,17 +1844,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna12;
-        private System.Windows.Forms.NumericUpDown ds4;
-        private System.Windows.Forms.NumericUpDown ds3;
-        private System.Windows.Forms.NumericUpDown ds2;
-        private System.Windows.Forms.NumericUpDown ds1;
-        private System.Windows.Forms.NumericUpDown pdn1;
-        private System.Windows.Forms.NumericUpDown pdn5;
-        private System.Windows.Forms.NumericUpDown pdn4;
-        private System.Windows.Forms.NumericUpDown pdn3;
-        private System.Windows.Forms.NumericUpDown pdn2;
-        private System.Windows.Forms.TextBox txtRosasVendidasCem;
-        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RosasVendidasCementerioAcumuladas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DemandaAcumulada;
+        private System.Windows.Forms.TextBox txtDemandaAcumulada;
+        private System.Windows.Forms.Label label49;
     }
 }
 

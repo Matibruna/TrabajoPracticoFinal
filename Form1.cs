@@ -228,11 +228,16 @@ namespace TrabajoPracticoFinal
             docPorPed = Double.Parse(docenasPorPedido.Text);
 
 
-            // Simular, 2 formas.
+            // Simular, 2 formas:
 
             simulacionPorFilas(comprarCantidadDemandada);
 
             //simulacionTradicional();
+        }
+
+        private void rbSatisfacerDemanda_CheckedChanged(object sender, EventArgs e)
+        {
+            sdPrecio.Enabled = rbSatisfacerDemanda.Checked;
         }
 
         //
@@ -248,7 +253,7 @@ namespace TrabajoPracticoFinal
                 cantidadCajonesComprar = Double.Parse(cajonesAPedir.Text);
             }
 
-            dgv.Rows.Add(-1.0, 0.0, 0.0, 0.0, "Inicio de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+            dgv.Rows.Add(-1.0, 0.0, 0.0, 0.0, "Inicio de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
             for (double i = 0; i < diasSimular; i++)
             {
                 simularFilaTradicional(satisfacerDemanda, comprarCantidadDemandada, i);
@@ -410,7 +415,7 @@ namespace TrabajoPracticoFinal
             }
 
             // Se genera la primer fila de inicio.
-            dgv.Rows.Add(-1.0, 0.0, 0.0, 0.0, "Inicio de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+            dgv.Rows.Add(-1.0, 0.0, 0.0, 0.0, "Inicio de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
 
             // Loop de simulacion.

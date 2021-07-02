@@ -132,6 +132,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.gananciasPromedio = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.label44 = new System.Windows.Forms.Label();
             this.Columna1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columna4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columna15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,7 +150,6 @@
             this.Columna12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RosasVendidasCementerioAcumuladas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DemandaAcumulada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label44 = new System.Windows.Forms.Label();
             this.panelDiasSoleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ds4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds3)).BeginInit();
@@ -1291,6 +1291,7 @@
             // 
             // demandaInicial
             // 
+            this.demandaInicial.Enabled = false;
             this.demandaInicial.Location = new System.Drawing.Point(12, 47);
             this.demandaInicial.Name = "demandaInicial";
             this.demandaInicial.Size = new System.Drawing.Size(91, 23);
@@ -1345,6 +1346,7 @@
             // 
             // sdPrecio
             // 
+            this.sdPrecio.Enabled = false;
             this.sdPrecio.Location = new System.Drawing.Point(12, 35);
             this.sdPrecio.Name = "sdPrecio";
             this.sdPrecio.Size = new System.Drawing.Size(91, 23);
@@ -1395,6 +1397,7 @@
             this.rbSatisfacerDemanda.TabIndex = 0;
             this.rbSatisfacerDemanda.Text = "Si";
             this.rbSatisfacerDemanda.UseVisualStyleBackColor = true;
+            this.rbSatisfacerDemanda.CheckedChanged += new System.EventHandler(this.rbSatisfacerDemanda_CheckedChanged);
             // 
             // panel7
             // 
@@ -1503,6 +1506,15 @@
             this.dgv.TabIndex = 0;
             this.dgv.Text = "dataGridView1";
             // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(1399, 20);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(180, 15);
+            this.label44.TabIndex = 9;
+            this.label44.Text = "Demanda expresada en docenas:";
+            // 
             // Columna1
             // 
             this.Columna1.HeaderText = "Dia";
@@ -1592,7 +1604,6 @@
             // 
             // Columna14
             // 
-            dataGridViewCellStyle1.Format = "N2";
             dataGridViewCellStyle1.NullValue = null;
             this.Columna14.DefaultCellStyle = dataGridViewCellStyle1;
             this.Columna14.HeaderText = "Costo de Compra Para Satisfacer Demanda";
@@ -1602,7 +1613,6 @@
             // 
             // Columna10
             // 
-            dataGridViewCellStyle2.Format = "N2";
             dataGridViewCellStyle2.NullValue = null;
             this.Columna10.DefaultCellStyle = dataGridViewCellStyle2;
             this.Columna10.HeaderText = "Costo por Faltante";
@@ -1612,7 +1622,6 @@
             // 
             // Columna11
             // 
-            dataGridViewCellStyle3.Format = "N2";
             dataGridViewCellStyle3.NullValue = null;
             this.Columna11.DefaultCellStyle = dataGridViewCellStyle3;
             this.Columna11.HeaderText = "Ganancia Total";
@@ -1623,7 +1632,6 @@
             // 
             // Columna12
             // 
-            dataGridViewCellStyle4.Format = "N2";
             dataGridViewCellStyle4.NullValue = null;
             this.Columna12.DefaultCellStyle = dataGridViewCellStyle4;
             this.Columna12.HeaderText = "Ganancia Total Acumulada";
@@ -1643,15 +1651,6 @@
             this.DemandaAcumulada.HeaderText = "Demanda Acumulada";
             this.DemandaAcumulada.Name = "DemandaAcumulada";
             this.DemandaAcumulada.ReadOnly = true;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(1399, 20);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(180, 15);
-            this.label44.TabIndex = 9;
-            this.label44.Text = "Demanda expresada en docenas:";
             // 
             // Main
             // 
@@ -1829,6 +1828,8 @@
         private System.Windows.Forms.NumericUpDown pdn2;
         private System.Windows.Forms.TextBox txtRosasVendidasCem;
         private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TextBox txtDemandaAcumulada;
+        private System.Windows.Forms.Label label49;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna15;
@@ -1846,8 +1847,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna12;
         private System.Windows.Forms.DataGridViewTextBoxColumn RosasVendidasCementerioAcumuladas;
         private System.Windows.Forms.DataGridViewTextBoxColumn DemandaAcumulada;
-        private System.Windows.Forms.TextBox txtDemandaAcumulada;
-        private System.Windows.Forms.Label label49;
     }
 }
 

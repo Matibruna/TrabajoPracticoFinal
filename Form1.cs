@@ -260,7 +260,7 @@ namespace TrabajoPracticoFinal
             }
 
             // Se genera la primer fila de inicio.
-            dgv.Rows.Add(0.0, "Inicio de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+            dgv.Rows.Add(0.0, "Inicio de simulacion", 0.0, 0.0, 0.0, "", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
 
             // Loop de simulacion.
@@ -294,7 +294,7 @@ namespace TrabajoPracticoFinal
             }
             
             // Se agrega a la tabla una fila final.
-            dgv.Rows.Add(diasSimular+1, "Fin de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Math.Round(filaAnterior.getGananciaTotalAcumulada(), 2), filaAnterior.getRosasVendidasCementerioAcumulada(), filaAnterior.getDemandaAcumulada());
+            dgv.Rows.Add(diasSimular+1, "Fin de simulacion", 0.0, 0.0, 0.0, "", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Math.Round(filaAnterior.getGananciaTotalAcumulada(), 2), filaAnterior.getRosasVendidasCementerioAcumulada(), filaAnterior.getDemandaAcumulada());
 
             // Se muestran los resultados en los textBox de la interfaz.
             gananciasPromedio.Text = (Math.Round(filaAnterior.getGananciaTotalAcumulada() / diasSimular, 2)).ToString();
@@ -310,7 +310,8 @@ namespace TrabajoPracticoFinal
             Fila filaSimulacion = new Fila(i);
 
             // Set Random Clima
-            filaSimulacion.setRndClima(rnd.NextDouble());
+            // Se multiplica por 100 para truncar el random a 2 cifras decimales. Y se vuelve a dividir por 100. Solucion a no redondear los randoms.
+            filaSimulacion.setRndClima(Math.Truncate(rnd.NextDouble()*100)/100);
             // Set Clima, Utilizando funcion getClima(randomCLima) y el randomClima = filaSimulacion.getRndClima();
             filaSimulacion.setClima(getClima(filaSimulacion.getRndClima()));
 
@@ -318,7 +319,7 @@ namespace TrabajoPracticoFinal
             filaSimulacion.setCantidadComprada(cantidadComprada);
 
             // Set Random Demanda
-            filaSimulacion.setRndDemanda(rnd.NextDouble());
+            filaSimulacion.setRndDemanda(Math.Truncate(rnd.NextDouble()*100)/100);
 
             // Set Demanda, Utiliza funcion getDemanda, primero verificando si el clima es soleado o nublado.
             if (filaSimulacion.getClima() == "Soleado")

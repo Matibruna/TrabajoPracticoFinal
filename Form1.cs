@@ -240,6 +240,22 @@ namespace TrabajoPracticoFinal
             sdPrecio.Enabled = rbSatisfacerDemanda.Checked;
         }
 
+        private void simularDesde_ValueChanged(object sender, EventArgs e)
+        {
+            if(simularDesde.Value > simularHasta.Value)
+            {
+                simularHasta.Value = simularDesde.Value;
+            }
+        }
+
+        private void simularHasta_ValueChanged(object sender, EventArgs e)
+        {
+            if (simularDesde.Value > simularHasta.Value)
+            {
+                simularDesde.Value = simularHasta.Value;
+            }
+        }
+
         //
         // Simulacion un poco mas tradicional en un solo loop con variables y no filas construidas.
         private void simulacionTradicional()
@@ -421,7 +437,7 @@ namespace TrabajoPracticoFinal
             // Loop de simulacion.
             for (double i = 0; i < diasSimular; i++)
             {
-                // SatisfacerDemanda es una variable global booleana que determina si se realizara o no la compra mas cara de flores para satisfacer la demanda.
+                // SatisfacerDemanda es una variable global (bool) que determina si se realizara o no la compra mas cara de flores para satisfacer la demanda.
                 filaSiguiente = generarFila(satisfacerDemanda, i, cantidadCajonesComprar * docPorPed * 12, filaAnterior.getGananciaTotalAcumulada(), filaAnterior.getRosasVendidasCementerioAcumulada(), filaAnterior.getDemandaAcumulada());
 
                 if (comprarCantidadDemandada)
@@ -429,7 +445,7 @@ namespace TrabajoPracticoFinal
                     // Si la opcion comprar cantidad demandada el dia anterior esta activa:
                     
                     // Se calcula la cantidad de cajones que haran falta.
-                    // Cada cajon tiene "docPorPed" docenas.
+                    // Cada cajon tiene "docPorPed" docenas (Docenas Por Pedido).
                     // filaAnterior.demanda / 12 nos da las docenas. y dividiendo por las docenasPorPedido nos da la cantidad de cajones a comprar, puede dar numeros con coma.
                     double NuevaDemanda = (filaSiguiente.getDemanda() / 12) / docPorPed;
 
@@ -444,6 +460,7 @@ namespace TrabajoPracticoFinal
                     dgv.Rows.Add(i, filaSiguiente.getCantidadComprada(), filaSiguiente.getCantidadCompradaSatisfacerDemanda(), Math.Round(filaSiguiente.getRndClima(), 2), filaSiguiente.getClima(), Math.Round(filaSiguiente.getRndDemanda(), 2), filaSiguiente.getDemanda(), filaSiguiente.getGananciaVentas(), filaSiguiente.getVentasCementerio(), Math.Round(filaSiguiente.getGananciaVentasCementerio(), 2), filaSiguiente.getCostoCompra(), filaSiguiente.getCostoCompraSatisfacerDemanda(), Math.Round(filaSiguiente.getCostoFaltante(), 2), Math.Round(filaSiguiente.getGananciaTotal(), 2), Math.Round(filaSiguiente.getGananciaTotalAcumulada(), 2), filaSiguiente.getRosasVendidasCementerioAcumulada(), filaSiguiente.getDemandaAcumulada());
                 }
 
+                // Fila T = T+1 
                 filaAnterior = filaSiguiente;
             }
             

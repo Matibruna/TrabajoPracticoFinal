@@ -132,7 +132,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.gananciasPromedio = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.label44 = new System.Windows.Forms.Label();
             this.Columna1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columna4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columna15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -150,6 +149,7 @@
             this.Columna12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RosasVendidasCementerioAcumuladas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DemandaAcumulada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label44 = new System.Windows.Forms.Label();
             this.panelDiasSoleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ds4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds3)).BeginInit();
@@ -1150,6 +1150,7 @@
             0,
             0,
             0});
+            this.simularHasta.ValueChanged += new System.EventHandler(this.simularHasta_ValueChanged);
             // 
             // simularDesde
             // 
@@ -1163,6 +1164,7 @@
             this.simularDesde.Size = new System.Drawing.Size(100, 23);
             this.simularDesde.TabIndex = 12;
             this.simularDesde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.simularDesde.ValueChanged += new System.EventHandler(this.simularDesde_ValueChanged);
             // 
             // diasASimular
             // 
@@ -1416,7 +1418,7 @@
             // txtDemandaAcumulada
             // 
             this.txtDemandaAcumulada.Enabled = false;
-            this.txtDemandaAcumulada.Location = new System.Drawing.Point(250, 109);
+            this.txtDemandaAcumulada.Location = new System.Drawing.Point(250, 106);
             this.txtDemandaAcumulada.Name = "txtDemandaAcumulada";
             this.txtDemandaAcumulada.Size = new System.Drawing.Size(70, 23);
             this.txtDemandaAcumulada.TabIndex = 5;
@@ -1425,7 +1427,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(0, 112);
+            this.label49.Location = new System.Drawing.Point(0, 109);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(156, 15);
             this.label49.TabIndex = 4;
@@ -1434,7 +1436,7 @@
             // txtRosasVendidasCem
             // 
             this.txtRosasVendidasCem.Enabled = false;
-            this.txtRosasVendidasCem.Location = new System.Drawing.Point(250, 80);
+            this.txtRosasVendidasCem.Location = new System.Drawing.Point(250, 77);
             this.txtRosasVendidasCem.Name = "txtRosasVendidasCem";
             this.txtRosasVendidasCem.Size = new System.Drawing.Size(70, 23);
             this.txtRosasVendidasCem.TabIndex = 3;
@@ -1443,7 +1445,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(0, 83);
+            this.label48.Location = new System.Drawing.Point(0, 80);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(219, 15);
             this.label48.TabIndex = 2;
@@ -1505,15 +1507,6 @@
             this.dgv.Size = new System.Drawing.Size(1878, 583);
             this.dgv.TabIndex = 0;
             this.dgv.Text = "dataGridView1";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(1399, 20);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(180, 15);
-            this.label44.TabIndex = 9;
-            this.label44.Text = "Demanda expresada en docenas:";
             // 
             // Columna1
             // 
@@ -1651,6 +1644,15 @@
             this.DemandaAcumulada.HeaderText = "Demanda Acumulada";
             this.DemandaAcumulada.Name = "DemandaAcumulada";
             this.DemandaAcumulada.ReadOnly = true;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(1399, 20);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(180, 15);
+            this.label44.TabIndex = 9;
+            this.label44.Text = "Demanda expresada en docenas:";
             // 
             // Main
             // 

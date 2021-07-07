@@ -1579,7 +1579,7 @@
             this.Columna6.Name = "Columna6";
             this.Columna6.ReadOnly = true;
             this.Columna6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna6.Width = 70;
+            this.Columna6.Width = 60;
             // 
             // Columna8
             // 
@@ -1603,7 +1603,6 @@
             this.Columna13.Name = "Columna13";
             this.Columna13.ReadOnly = true;
             this.Columna13.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna13.Width = 130;
             // 
             // Columna9
             // 
@@ -1620,7 +1619,7 @@
             this.Columna14.HeaderText = "Costo de Compra Para Satisfacer Demanda";
             this.Columna14.Name = "Columna14";
             this.Columna14.ReadOnly = true;
-            this.Columna14.Width = 120;
+            this.Columna14.Width = 90;
             // 
             // Columna10
             // 
@@ -1639,7 +1638,7 @@
             this.Columna11.Name = "Columna11";
             this.Columna11.ReadOnly = true;
             this.Columna11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna11.Width = 70;
+            this.Columna11.Width = 60;
             // 
             // Columna12
             // 
@@ -1649,18 +1648,21 @@
             this.Columna12.Name = "Columna12";
             this.Columna12.ReadOnly = true;
             this.Columna12.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Columna12.Width = 80;
             // 
             // RosasVendidasCementerioAcumuladas
             // 
             this.RosasVendidasCementerioAcumuladas.HeaderText = "Rosas Vendidas a Cementerio Acumuladas";
             this.RosasVendidasCementerioAcumuladas.Name = "RosasVendidasCementerioAcumuladas";
             this.RosasVendidasCementerioAcumuladas.ReadOnly = true;
+            this.RosasVendidasCementerioAcumuladas.Width = 80;
             // 
             // DemandaAcumulada
             // 
             this.DemandaAcumulada.HeaderText = "Demanda Acumulada";
             this.DemandaAcumulada.Name = "DemandaAcumulada";
             this.DemandaAcumulada.ReadOnly = true;
+            this.DemandaAcumulada.Width = 70;
             // 
             // Main
             // 

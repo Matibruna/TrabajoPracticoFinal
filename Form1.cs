@@ -280,7 +280,7 @@ namespace TrabajoPracticoFinal
             for (double i = 1; i <= diasSimular; i++)
             {
                 // SatisfacerDemanda es una variable global (bool) que determina si se realizara o no la compra mas cara de flores para satisfacer la demanda.
-                filaSiguiente = generarFila(satisfacerDemanda, i, cantidadCajonesComprar * docPorPed * 12, filaAnterior.getGananciaTotalAcumulada(), filaAnterior.getRosasVendidasCementerioAcumulada(), filaAnterior.getDemandaAcumulada());
+                filaSiguiente = generarFila(satisfacerDemanda, i, cantidadCajonesComprar * docPorPed * 12, filaAnterior);
 
                 if (comprarCantidadDemandada)
                 {
@@ -316,7 +316,7 @@ namespace TrabajoPracticoFinal
 
         }
 
-        private Fila generarFila(bool satisfacerDemanda, double i, double cantidadComprada, double acumuladoGanancias, double acumuladoRosas, double acumuladorDemanda)
+        private Fila generarFila(bool satisfacerDemanda, double i, double cantidadComprada, Fila filaAnterior)
         {
             rnd = new Random();
 
@@ -440,10 +440,13 @@ namespace TrabajoPracticoFinal
             // Se setean la ganancia total.
             filaSimulacion.setGananciaTotal(gananciaTotal);
 
-            // Se setean los acumulados con las ganancias, demanda y rosas vendidas en esta iteracion como la suma de la iteracion actual + los acumulados anteriores que fueron pasados por parametro.
-            filaSimulacion.setGananciaTotalAcumulada(acumuladoGanancias + gananciaTotal);
-            filaSimulacion.setRosasVendidasCementerioAcumulada(filaSimulacion.getVentasCementerio() + acumuladoRosas);
-            filaSimulacion.setDemandaAcumulada(acumuladorDemanda + filaSimulacion.getDemanda());
+            // Se setean los acumulados de la fila anterior con las ganancias, ventas a cementerio y demanda de esta fila de simulacion.
+            
+            filaSimulacion.setGananciaTotalAcumulada(filaAnterior.getGananciaTotalAcumulada() + gananciaTotal);
+
+            filaSimulacion.setRosasVendidasCementerioAcumulada(filaAnterior.getRosasVendidasCementerioAcumulada() + filaSimulacion.getVentasCementerio());
+
+            filaSimulacion.setDemandaAcumulada(filaAnterior.getDemandaAcumulada() + filaSimulacion.getDemanda());
 
             return filaSimulacion;
         }

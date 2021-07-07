@@ -1040,7 +1040,7 @@
             1,
             0,
             0,
-            65536});
+            131072});
             this.txtPrecioVentaCementerio.Location = new System.Drawing.Point(183, 58);
             this.txtPrecioVentaCementerio.Name = "txtPrecioVentaCementerio";
             this.txtPrecioVentaCementerio.Size = new System.Drawing.Size(101, 23);

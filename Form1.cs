@@ -94,39 +94,26 @@ namespace TrabajoPracticoFinal
 
         private void recalcularProbDiasSoleados()
         {
-            try
-            {
-                ProbDiaNublado = Double.Parse(pDiaNublado.Value.ToString());
-                pDiaSoleado.Value = Convert.ToDecimal(1 - ProbDiaNublado);
-                ProbDiaSoleado = 1 - ProbDiaNublado;
 
-                double total = ProbDiaSoleado + ProbDiaNublado;
+             ProbDiaNublado = Double.Parse(pDiaNublado.Value.ToString());
+             pDiaSoleado.Value = Convert.ToDecimal(1 - ProbDiaNublado);
+             ProbDiaSoleado = 1 - ProbDiaNublado;
 
-                tpDias.Text = total.ToString();
-            }
-            catch
-            {
+             double total = ProbDiaSoleado + ProbDiaNublado;
 
-            }
+             tpDias.Text = total.ToString();
+
         }
 
         private void recalcularProbDiasNublados() 
         {
-            try
-            {
-                ProbDiaSoleado = Double.Parse(pDiaSoleado.Value.ToString());
-                pDiaNublado.Value = Convert.ToDecimal(1 - ProbDiaSoleado);
-                ProbDiaNublado = 1 - ProbDiaSoleado;
+            ProbDiaSoleado = Double.Parse(pDiaSoleado.Value.ToString());
+            pDiaNublado.Value = Convert.ToDecimal(1 - ProbDiaSoleado);
+            ProbDiaNublado = 1 - ProbDiaSoleado;
                 
+            double total = ProbDiaSoleado + ProbDiaNublado;
 
-                double total = ProbDiaSoleado + ProbDiaNublado;
-
-                tpDias.Text = total.ToString();
-            }
-            catch
-            {
-
-            }
+            tpDias.Text = total.ToString();
         }
         private void ds4_TextChanged(object sender, EventArgs e)
         {

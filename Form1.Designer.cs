@@ -196,7 +196,7 @@
             // 
             // btnSimulacion
             // 
-            this.btnSimulacion.Location = new System.Drawing.Point(654, 109);
+            this.btnSimulacion.Location = new System.Drawing.Point(422, 12);
             this.btnSimulacion.Name = "btnSimulacion";
             this.btnSimulacion.Size = new System.Drawing.Size(323, 92);
             this.btnSimulacion.TabIndex = 1;
@@ -235,7 +235,7 @@
             this.panelDiasSoleados.Controls.Add(this.label3);
             this.panelDiasSoleados.Controls.Add(this.label2);
             this.panelDiasSoleados.Controls.Add(this.label1);
-            this.panelDiasSoleados.Location = new System.Drawing.Point(1585, 12);
+            this.panelDiasSoleados.Location = new System.Drawing.Point(1082, 9);
             this.panelDiasSoleados.Name = "panelDiasSoleados";
             this.panelDiasSoleados.Size = new System.Drawing.Size(305, 205);
             this.panelDiasSoleados.TabIndex = 4;
@@ -517,7 +517,7 @@
             this.panelDiasNublados.Controls.Add(this.label6);
             this.panelDiasNublados.Controls.Add(this.label7);
             this.panelDiasNublados.Controls.Add(this.label8);
-            this.panelDiasNublados.Location = new System.Drawing.Point(1585, 235);
+            this.panelDiasNublados.Location = new System.Drawing.Point(1082, 232);
             this.panelDiasNublados.Name = "panelDiasNublados";
             this.panelDiasNublados.Size = new System.Drawing.Size(305, 205);
             this.panelDiasNublados.TabIndex = 4;
@@ -862,7 +862,7 @@
             this.panel1.Controls.Add(this.tpDias);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label16);
-            this.panel1.Location = new System.Drawing.Point(1095, 333);
+            this.panel1.Location = new System.Drawing.Point(674, 322);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(402, 107);
             this.panel1.TabIndex = 5;
@@ -943,7 +943,7 @@
             this.panel2.Controls.Add(this.label20);
             this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.label18);
-            this.panel2.Location = new System.Drawing.Point(1172, 235);
+            this.panel2.Location = new System.Drawing.Point(751, 224);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(325, 92);
             this.panel2.TabIndex = 6;
@@ -1033,7 +1033,7 @@
             this.panel3.Controls.Add(this.ventaPrecioUnitario);
             this.panel3.Controls.Add(this.label22);
             this.panel3.Controls.Add(this.label23);
-            this.panel3.Location = new System.Drawing.Point(1172, 109);
+            this.panel3.Location = new System.Drawing.Point(751, 98);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(325, 120);
             this.panel3.TabIndex = 6;
@@ -1184,7 +1184,7 @@
             0,
             0,
             0});
-            this.diasASimular.ValueChanged += new System.EventHandler(this.diasASimular_TextChanged);
+            this.diasASimular.ValueChanged += new System.EventHandler(this.diasASimular_ValueChanged);
             // 
             // cajonesAPedir
             // 
@@ -1411,7 +1411,7 @@
             this.panel7.Controls.Add(this.label34);
             this.panel7.Controls.Add(this.label21);
             this.panel7.Controls.Add(this.gananciasPromedio);
-            this.panel7.Location = new System.Drawing.Point(654, 207);
+            this.panel7.Location = new System.Drawing.Point(422, 110);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(323, 148);
             this.panel7.TabIndex = 8;
@@ -1503,17 +1503,17 @@
             this.Columna12,
             this.RosasVendidasCementerioAcumuladas,
             this.DemandaAcumulada});
-            this.dgv.Location = new System.Drawing.Point(12, 446);
+            this.dgv.Location = new System.Drawing.Point(5, 440);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
-            this.dgv.Size = new System.Drawing.Size(1878, 583);
+            this.dgv.Size = new System.Drawing.Size(1400, 300);
             this.dgv.TabIndex = 0;
             this.dgv.Text = "dataGridView1";
             // 
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(1399, 20);
+            this.label44.Location = new System.Drawing.Point(896, 17);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(180, 15);
             this.label44.TabIndex = 9;
@@ -1525,13 +1525,14 @@
             this.Columna1.Name = "Columna1";
             this.Columna1.ReadOnly = true;
             this.Columna1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna1.Width = 50;
+            this.Columna1.Width = 40;
             // 
             // Column19
             // 
             this.Column19.HeaderText = "Evento";
             this.Column19.Name = "Column19";
             this.Column19.ReadOnly = true;
+            this.Column19.Width = 80;
             // 
             // Columna4
             // 
@@ -1539,14 +1540,14 @@
             this.Columna4.Name = "Columna4";
             this.Columna4.ReadOnly = true;
             this.Columna4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna4.Width = 120;
+            this.Columna4.Width = 70;
             // 
             // Columna15
             // 
             this.Columna15.HeaderText = "Cantidad Comprada Para Satisfacer Demanda";
             this.Columna15.Name = "Columna15";
             this.Columna15.ReadOnly = true;
-            this.Columna15.Width = 170;
+            this.Columna15.Width = 130;
             // 
             // Columna2
             // 
@@ -1554,7 +1555,7 @@
             this.Columna2.Name = "Columna2";
             this.Columna2.ReadOnly = true;
             this.Columna2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna2.Width = 70;
+            this.Columna2.Width = 60;
             // 
             // Columna3
             // 
@@ -1562,7 +1563,7 @@
             this.Columna3.Name = "Columna3";
             this.Columna3.ReadOnly = true;
             this.Columna3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna3.Width = 90;
+            this.Columna3.Width = 70;
             // 
             // Columna5
             // 
@@ -1570,7 +1571,7 @@
             this.Columna5.Name = "Columna5";
             this.Columna5.ReadOnly = true;
             this.Columna5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna5.Width = 70;
+            this.Columna5.Width = 60;
             // 
             // Columna6
             // 
@@ -1586,7 +1587,7 @@
             this.Columna8.Name = "Columna8";
             this.Columna8.ReadOnly = true;
             this.Columna8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna8.Width = 90;
+            this.Columna8.Width = 80;
             // 
             // Columna7
             // 
@@ -1594,7 +1595,7 @@
             this.Columna7.Name = "Columna7";
             this.Columna7.ReadOnly = true;
             this.Columna7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna7.Width = 110;
+            this.Columna7.Width = 80;
             // 
             // Columna13
             // 
@@ -1619,7 +1620,7 @@
             this.Columna14.HeaderText = "Costo de Compra Para Satisfacer Demanda";
             this.Columna14.Name = "Columna14";
             this.Columna14.ReadOnly = true;
-            this.Columna14.Width = 150;
+            this.Columna14.Width = 120;
             // 
             // Columna10
             // 
@@ -1628,7 +1629,7 @@
             this.Columna10.HeaderText = "Costo por Faltante";
             this.Columna10.Name = "Columna10";
             this.Columna10.ReadOnly = true;
-            this.Columna10.Width = 80;
+            this.Columna10.Width = 70;
             // 
             // Columna11
             // 
@@ -1654,7 +1655,6 @@
             this.RosasVendidasCementerioAcumuladas.HeaderText = "Rosas Vendidas a Cementerio Acumuladas";
             this.RosasVendidasCementerioAcumuladas.Name = "RosasVendidasCementerioAcumuladas";
             this.RosasVendidasCementerioAcumuladas.ReadOnly = true;
-            this.RosasVendidasCementerioAcumuladas.Width = 150;
             // 
             // DemandaAcumulada
             // 
@@ -1666,7 +1666,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1404, 747);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label44);
@@ -1679,6 +1679,7 @@
             this.Controls.Add(this.panelDiasSoleados);
             this.Controls.Add(this.btnSimulacion);
             this.Controls.Add(this.dgv);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "Trabajo Practico Final Simulación";

@@ -44,11 +44,6 @@ namespace TrabajoPracticoFinal
         private double simularHast;
         private double diasSimular;
 
-        //Acumuladores
-        private double acumuladorGananciaTotal;
-        private double acumuladorRosasVendidasCementerio;
-        private double acumuladorDemanda;
-
         public Main()
         {
             InitializeComponent();
@@ -207,11 +202,6 @@ namespace TrabajoPracticoFinal
             satisfacerDemanda = rbSatisfacerDemanda.Checked;
             comprarCantidadDemandada = rbDemandaDiaAnterior.Checked;
 
-            // Setear los acumuladores a 0.
-            acumuladorGananciaTotal = 0;
-            acumuladorRosasVendidasCementerio = 0;
-            acumuladorDemanda = 0;
-
             // Obtener datos de simulacion.
             precioCajon = Double.Parse(precioPedido.Text) * Double.Parse(docenasPorPedido.Text);
             precioSatisfacerDemanda = Double.Parse(sdPrecio.Text);
@@ -230,6 +220,14 @@ namespace TrabajoPracticoFinal
             sdPrecio.Enabled = rbSatisfacerDemanda.Checked;
         }
 
+        private void diasASimular_ValueChanged(object sender, EventArgs e)
+        {
+            if (simularHasta.Value > diasASimular.Value)
+            {
+                simularHasta.Value = diasASimular.Value;
+            }
+        }
+
         private void simularDesde_ValueChanged(object sender, EventArgs e)
         {
             if(simularDesde.Value > simularHasta.Value)
@@ -245,9 +243,9 @@ namespace TrabajoPracticoFinal
                 simularDesde.Value = simularHasta.Value;
             }
 
-            if(simularDesde.Value > diasASimular.Value)
+            if(simularHasta.Value > diasASimular.Value)
             {
-                simularDesde.Value = diasASimular.Value;
+                simularHasta.Value = diasASimular.Value;
             }
         }
 

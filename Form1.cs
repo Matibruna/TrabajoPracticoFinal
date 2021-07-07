@@ -133,12 +133,6 @@ namespace TrabajoPracticoFinal
 
             }
         }
-
-        private void diasASimular_TextChanged(object sender, EventArgs e)
-        {
-            simularHasta.Value= diasASimular.Value;
-        }
-
         private void ds4_TextChanged(object sender, EventArgs e)
         {
             recalcularDiasSoleados();
@@ -228,11 +222,7 @@ namespace TrabajoPracticoFinal
             docPorPed = Double.Parse(docenasPorPedido.Text);
 
 
-            // Simular, 2 formas:
-
-            simulacionPorFilas(comprarCantidadDemandada);
-
-            //simulacionTradicional();
+            simulacionPorFilas(comprarCantidadDemandada, satisfacerDemanda);
         }
 
         private void rbSatisfacerDemanda_CheckedChanged(object sender, EventArgs e)
@@ -254,162 +244,16 @@ namespace TrabajoPracticoFinal
             {
                 simularDesde.Value = simularHasta.Value;
             }
-        }
 
-        //
-        // Simulacion un poco mas tradicional en un solo loop con variables y no filas construidas.
-        private void simulacionTradicional()
-        {
-            if (comprarCantidadDemandada)
+            if(simularDesde.Value > diasASimular.Value)
             {
-                cantidadCajonesComprar = Math.Ceiling(Int32.Parse(demandaInicial.Text) / docPorPed);
+                simularDesde.Value = diasASimular.Value;
             }
-            else
-            {
-                cantidadCajonesComprar = Double.Parse(cajonesAPedir.Text);
-            }
-
-            dgv.Rows.Add(-1.0, 0.0, 0.0, 0.0, "Inicio de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-            for (double i = 0; i < diasSimular; i++)
-            {
-                simularFilaTradicional(satisfacerDemanda, comprarCantidadDemandada, i);
-            }
-
-            dgv.Rows.Add(diasSimular, 0.0, 0.0, 0.0, "Fin de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Math.Round(acumuladorGananciaTotal, 2), Math.Round(acumuladorRosasVendidasCementerio, 2), Math.Round(acumuladorDemanda, 2));
-
-            // Mostramos los resultados finales en la interfaz.
-            gananciasPromedio.Text = (Math.Round(acumuladorGananciaTotal / diasSimular, 2)).ToString();
-            txtRosasVendidasCem.Text = (Math.Round(acumuladorRosasVendidasCementerio / diasSimular, 2)).ToString();
-            txtDemandaAcumulada.Text = (Math.Round(acumuladorDemanda / diasSimular), 2).ToString();
-        }
-        private void simularFilaTradicional(bool satisfacerDemanda, bool comprarCantidadDemandada, double i)
-        {
-            
-            rnd = new Random();
-            string clima;
-            double randomClima, randomDemanda;
-            double demanda;
-            double ventasCementerio = 0;
-            double cantidadCompradaParaSatisfacerDemanda=0;
-
-            //Costos
-            double costoCompra, costoFaltante=0, costoExtra=0;
-
-            //Ganancias
-            double gananciaPorVentas, gananciaTotal, gananciaVentasCementerio=0;
-
-            // Tirada random clima.
-            randomClima = rnd.NextDouble();
-
-            // Buscamos el clima asociado al random anterior.
-            clima = getClima(randomClima);
-
-            // Tirada random demanda.
-            randomDemanda = rnd.NextDouble();
-
-            // Buscamos la demanda, primero preguntando si el dia fue soleado o nublado.
-            if (clima == "Soleado")
-            {
-                demanda = getDemandaSoleado(randomDemanda);
-            }
-            else
-            {
-                demanda = getDemandaNublado(randomDemanda);
-            }
-
-            if ((cantidadCajonesComprar * docPorPed * 12) >= demanda)
-            {
-                ventasCementerio = cantidadCajonesComprar * docPorPed * 12 - demanda;
-
-                gananciaPorVentas = demanda * precioVentaUnitario;
-
-                gananciaVentasCementerio = Double.Parse(txtPrecioVentaCementerio.Text) * ventasCementerio;
-            }
-            else
-            {
-                // Opcion Satisfacer Demanda a Mayor precio ¿Activa?
-                if (satisfacerDemanda)
-                {
-                    // En caso de estar activa, calcular la cantidad de docenas a comprar.
-                    double docenasAComprar = Math.Ceiling((demanda - (cantidadCajonesComprar * docPorPed * 12))/12);
-                    cantidadCompradaParaSatisfacerDemanda = docenasAComprar * 12;
-
-                    // Modificar la cantidad disponible.
-                    double cantidadDisponible = (cantidadCajonesComprar * docPorPed * 12) + cantidadCompradaParaSatisfacerDemanda;
-
-                    // Calcular el costo que supone la compra extra de rosas.
-                    costoExtra = docenasAComprar * precioSatisfacerDemanda;
-
-                    // Si compramos mas flores, ¿Sobran?
-                    if (cantidadDisponible > demanda)
-                    {
-                        // En caso de que sobren:
-                        // Se calculan cuantas se venderan al cementerio.
-                        ventasCementerio = cantidadDisponible - demanda;
-                        // Y se calculan las ganancias asociadas a las ventas generales y a las ventas al cementerio.
-                        // Ventas Generales
-                        gananciaPorVentas = demanda * precioVentaUnitario;
-                        //Ventas al Cementerio.
-                        gananciaVentasCementerio = Double.Parse(txtPrecioVentaCementerio.Text) * ventasCementerio;
-                    } 
-                    else 
-                    {
-                        // En caso de que no sobren flores.
-                        // Ventas y Ganancias respecto al cementerio siguen siendo 0.
-
-                        // Solo se calcula las ganancias por ventas generales.
-                        gananciaPorVentas = demanda * precioVentaUnitario;
-                    }
-                }
-                else
-                {
-                    // No se satisface la demanda.
-                    // Ventas al cementerio son 0, ya que la demanda es > que la cantidad disponible, por lo tanto 0 vendidas y ganancia 0.(cementerio)
-
-                    // Se calculan las ganancias por ventas generales.
-                    gananciaPorVentas = (cantidadCajonesComprar * docPorPed * 12) * precioVentaUnitario; 
-
-                    // Y un costo por faltante de rosas.
-                    costoFaltante = (demanda - cantidadCajonesComprar * docPorPed * 12) * Double.Parse(costoFaltanteUnitario.Text);
-                }
-            }
-
-            // Calculamos lo que costo comprar las rosas iniciales (No el caso de satisfacer demanda, ese caso ya fue calculado anteriormente).
-            costoCompra = cantidadCajonesComprar * precioCajon;
-
-            // Se calculan las ganancias totales como sumatoria de ganancias - costos.
-            gananciaTotal = gananciaPorVentas + gananciaVentasCementerio - costoCompra - costoFaltante - costoExtra;
-
-            // Se actualizan los acumuladores.
-            acumuladorRosasVendidasCementerio += ventasCementerio;
-            acumuladorGananciaTotal += gananciaTotal;
-            acumuladorDemanda += demanda;
-
-            // Se agrega a la tabla en caso de que se deba agregar.
-            if (simularDesd <= i && i < simularHast) 
-            {
-                dgv.Rows.Add(i, cantidadCajonesComprar*docPorPed*12, cantidadCompradaParaSatisfacerDemanda, Math.Round(randomClima, 2), clima, Math.Round(randomDemanda, 2), demanda, gananciaPorVentas, ventasCementerio, Math.Round(gananciaVentasCementerio, 2), costoCompra, costoExtra, Math.Round(costoFaltante, 2), Math.Round(gananciaTotal, 2), Math.Round(acumuladorGananciaTotal, 2), Math.Round(acumuladorDemanda, 2));
-            }
-
-            if (comprarCantidadDemandada)
-            {
-                //¿Compra constante o compra la cantidad demandada el dia anterior?//
-                // Compra constante = no pasa nada.
-                // Compra la cantidad demandada el dia anterior:
-                // Se redondea la demanda del dia anterior a la minima cantidad de cajones posibles por comprar para satisfacer esa demanda.
-                // Ejemplo:
-                // Demanda 48 Rosas, Con 1 Cajon de 4 Docenas Alcanza.
-                // Demanda 50 Rosas, Con 1 no alcanza, la demanda sera de 2 cajones.
-
-                double NuevaDemanda = (demanda/12) / docPorPed;
-                cantidadCajonesComprar = Math.Ceiling( NuevaDemanda );
-            }
-           
         }
 
         //
         // Simulacion con 2 filas en memoria.
-        private void simulacionPorFilas(bool comprarCantidadDemandada)
+        private void simulacionPorFilas(bool comprarCantidadDemandada, bool satisfacerDemanda)
         {
             // Variables Para Filas N y N+1
             Fila filaAnterior = new Fila(0);
@@ -431,11 +275,11 @@ namespace TrabajoPracticoFinal
             }
 
             // Se genera la primer fila de inicio.
-            dgv.Rows.Add(-1.0, 0.0, 0.0, 0.0, "Inicio de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+            dgv.Rows.Add(0.0, "Inicio de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
 
             // Loop de simulacion.
-            for (double i = 0; i < diasSimular; i++)
+            for (double i = 1; i <= diasSimular; i++)
             {
                 // SatisfacerDemanda es una variable global (bool) que determina si se realizara o no la compra mas cara de flores para satisfacer la demanda.
                 filaSiguiente = generarFila(satisfacerDemanda, i, cantidadCajonesComprar * docPorPed * 12, filaAnterior.getGananciaTotalAcumulada(), filaAnterior.getRosasVendidasCementerioAcumulada(), filaAnterior.getDemandaAcumulada());
@@ -454,10 +298,10 @@ namespace TrabajoPracticoFinal
                 }
 
                 // ¿Se ingresan los datos a la tabla?
-                if (simularDesd <= i && i < simularHast)
+                if (simularDesd <= i && i <= simularHast)
                 {
                     /// Agregar a la tabla.
-                    dgv.Rows.Add(i, filaSiguiente.getCantidadComprada(), filaSiguiente.getCantidadCompradaSatisfacerDemanda(), Math.Round(filaSiguiente.getRndClima(), 2), filaSiguiente.getClima(), Math.Round(filaSiguiente.getRndDemanda(), 2), filaSiguiente.getDemanda(), filaSiguiente.getGananciaVentas(), filaSiguiente.getVentasCementerio(), Math.Round(filaSiguiente.getGananciaVentasCementerio(), 2), filaSiguiente.getCostoCompra(), filaSiguiente.getCostoCompraSatisfacerDemanda(), Math.Round(filaSiguiente.getCostoFaltante(), 2), Math.Round(filaSiguiente.getGananciaTotal(), 2), Math.Round(filaSiguiente.getGananciaTotalAcumulada(), 2), filaSiguiente.getRosasVendidasCementerioAcumulada(), filaSiguiente.getDemandaAcumulada());
+                    dgv.Rows.Add(i, "Simular dia " + i.ToString(), filaSiguiente.getCantidadComprada(), filaSiguiente.getCantidadCompradaSatisfacerDemanda(), Math.Round(filaSiguiente.getRndClima(), 2), filaSiguiente.getClima(), Math.Round(filaSiguiente.getRndDemanda(), 2), filaSiguiente.getDemanda(), filaSiguiente.getGananciaVentas(), filaSiguiente.getVentasCementerio(), Math.Round(filaSiguiente.getGananciaVentasCementerio(), 2), filaSiguiente.getCostoCompra(), filaSiguiente.getCostoCompraSatisfacerDemanda(), Math.Round(filaSiguiente.getCostoFaltante(), 2), Math.Round(filaSiguiente.getGananciaTotal(), 2), Math.Round(filaSiguiente.getGananciaTotalAcumulada(), 2), filaSiguiente.getRosasVendidasCementerioAcumulada(), filaSiguiente.getDemandaAcumulada());
                 }
 
                 // Fila T = T+1 
@@ -465,7 +309,7 @@ namespace TrabajoPracticoFinal
             }
             
             // Se agrega a la tabla una fila final.
-            dgv.Rows.Add(diasSimular, 0.0, 0.0, 0.0, "Fin de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Math.Round(filaAnterior.getGananciaTotalAcumulada(), 2), filaAnterior.getRosasVendidasCementerioAcumulada(), filaAnterior.getDemandaAcumulada());
+            dgv.Rows.Add(diasSimular+1, "Fin de simulacion", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Math.Round(filaAnterior.getGananciaTotalAcumulada(), 2), filaAnterior.getRosasVendidasCementerioAcumulada(), filaAnterior.getDemandaAcumulada());
 
             // Se muestran los resultados en los textBox de la interfaz.
             gananciasPromedio.Text = (Math.Round(filaAnterior.getGananciaTotalAcumulada() / diasSimular, 2)).ToString();

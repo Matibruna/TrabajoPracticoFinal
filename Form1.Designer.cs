@@ -132,7 +132,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.gananciasPromedio = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.label44 = new System.Windows.Forms.Label();
             this.Columna1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columna4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columna15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columna2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,7 +151,6 @@
             this.Columna12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RosasVendidasCementerioAcumuladas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DemandaAcumulada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label44 = new System.Windows.Forms.Label();
             this.panelDiasSoleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ds4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds3)).BeginInit();
@@ -1485,6 +1486,7 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Columna1,
+            this.Column19,
             this.Columna4,
             this.Columna15,
             this.Columna2,
@@ -1508,6 +1510,15 @@
             this.dgv.TabIndex = 0;
             this.dgv.Text = "dataGridView1";
             // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(1399, 20);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(180, 15);
+            this.label44.TabIndex = 9;
+            this.label44.Text = "Demanda expresada en docenas:";
+            // 
             // Columna1
             // 
             this.Columna1.HeaderText = "Dia";
@@ -1515,6 +1526,12 @@
             this.Columna1.ReadOnly = true;
             this.Columna1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Columna1.Width = 50;
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "Evento";
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
             // 
             // Columna4
             // 
@@ -1529,7 +1546,7 @@
             this.Columna15.HeaderText = "Cantidad Comprada Para Satisfacer Demanda";
             this.Columna15.Name = "Columna15";
             this.Columna15.ReadOnly = true;
-            this.Columna15.Width = 200;
+            this.Columna15.Width = 170;
             // 
             // Columna2
             // 
@@ -1585,7 +1602,7 @@
             this.Columna13.Name = "Columna13";
             this.Columna13.ReadOnly = true;
             this.Columna13.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Columna13.Width = 150;
+            this.Columna13.Width = 130;
             // 
             // Columna9
             // 
@@ -1611,7 +1628,7 @@
             this.Columna10.HeaderText = "Costo por Faltante";
             this.Columna10.Name = "Columna10";
             this.Columna10.ReadOnly = true;
-            this.Columna10.Width = 70;
+            this.Columna10.Width = 80;
             // 
             // Columna11
             // 
@@ -1644,15 +1661,6 @@
             this.DemandaAcumulada.HeaderText = "Demanda Acumulada";
             this.DemandaAcumulada.Name = "DemandaAcumulada";
             this.DemandaAcumulada.ReadOnly = true;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(1399, 20);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(180, 15);
-            this.label44.TabIndex = 9;
-            this.label44.Text = "Demanda expresada en docenas:";
             // 
             // Main
             // 
@@ -1833,6 +1841,7 @@
         private System.Windows.Forms.TextBox txtDemandaAcumulada;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna2;

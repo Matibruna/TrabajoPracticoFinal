@@ -132,7 +132,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.gananciasPromedio = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.label44 = new System.Windows.Forms.Label();
             this.Columna1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columna4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,6 +150,7 @@
             this.Columna12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RosasVendidasCementerioAcumuladas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DemandaAcumulada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label44 = new System.Windows.Forms.Label();
             this.panelDiasSoleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ds4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds3)).BeginInit();
@@ -964,11 +964,6 @@
             // precioPedido
             // 
             this.precioPedido.Location = new System.Drawing.Point(183, 29);
-            this.precioPedido.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             this.precioPedido.Name = "precioPedido";
             this.precioPedido.Size = new System.Drawing.Size(101, 23);
             this.precioPedido.TabIndex = 11;
@@ -1096,6 +1091,7 @@
             // 
             // ventaPrecioUnitario
             // 
+            this.ventaPrecioUnitario.DecimalPlaces = 1;
             this.ventaPrecioUnitario.Increment = new decimal(new int[] {
             1,
             0,
@@ -1510,15 +1506,6 @@
             this.dgv.TabIndex = 0;
             this.dgv.Text = "dataGridView1";
             // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(896, 17);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(180, 15);
-            this.label44.TabIndex = 9;
-            this.label44.Text = "Demanda expresada en docenas:";
-            // 
             // Columna1
             // 
             this.Columna1.HeaderText = "Dia";
@@ -1663,6 +1650,15 @@
             this.DemandaAcumulada.Name = "DemandaAcumulada";
             this.DemandaAcumulada.ReadOnly = true;
             this.DemandaAcumulada.Width = 70;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(896, 17);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(180, 15);
+            this.label44.TabIndex = 9;
+            this.label44.Text = "Demanda expresada en docenas:";
             // 
             // Main
             // 

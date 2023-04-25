@@ -38,6 +38,7 @@
             this.ds4 = new System.Windows.Forms.NumericUpDown();
             this.ds3 = new System.Windows.Forms.NumericUpDown();
             this.d4 = new System.Windows.Forms.NumericUpDown();
+            this.label44 = new System.Windows.Forms.Label();
             this.ds2 = new System.Windows.Forms.NumericUpDown();
             this.d2 = new System.Windows.Forms.NumericUpDown();
             this.ds1 = new System.Windows.Forms.NumericUpDown();
@@ -150,7 +151,7 @@
             this.Columna12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RosasVendidasCementerioAcumuladas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DemandaAcumulada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label44 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
             this.panelDiasSoleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ds4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds3)).BeginInit();
@@ -218,6 +219,7 @@
             this.panelDiasSoleados.Controls.Add(this.ds4);
             this.panelDiasSoleados.Controls.Add(this.ds3);
             this.panelDiasSoleados.Controls.Add(this.d4);
+            this.panelDiasSoleados.Controls.Add(this.label44);
             this.panelDiasSoleados.Controls.Add(this.ds2);
             this.panelDiasSoleados.Controls.Add(this.d2);
             this.panelDiasSoleados.Controls.Add(this.ds1);
@@ -303,6 +305,15 @@
             0,
             0,
             0});
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(63, 149);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(190, 15);
+            this.label44.TabIndex = 9;
+            this.label44.Text = "Demandas expresadas en docenas.";
             // 
             // ds2
             // 
@@ -1502,7 +1513,7 @@
             this.dgv.Location = new System.Drawing.Point(5, 440);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
-            this.dgv.Size = new System.Drawing.Size(1400, 300);
+            this.dgv.Size = new System.Drawing.Size(1400, 468);
             this.dgv.TabIndex = 0;
             this.dgv.Text = "dataGridView1";
             // 
@@ -1651,23 +1662,25 @@
             this.DemandaAcumulada.ReadOnly = true;
             this.DemandaAcumulada.Width = 70;
             // 
-            // label44
+            // label50
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(896, 17);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(180, 15);
-            this.label44.TabIndex = 9;
-            this.label44.Text = "Demanda expresada en docenas:";
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label50.Location = new System.Drawing.Point(820, 52);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(203, 21);
+            this.label50.TabIndex = 10;
+            this.label50.Text = "Datos de Base del Problema";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1404, 747);
+            this.BackColor = System.Drawing.Color.Ivory;
+            this.ClientSize = new System.Drawing.Size(1404, 908);
+            this.Controls.Add(this.label50);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.label44);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -1857,6 +1870,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Columna12;
         private System.Windows.Forms.DataGridViewTextBoxColumn RosasVendidasCementerioAcumuladas;
         private System.Windows.Forms.DataGridViewTextBoxColumn DemandaAcumulada;
+        private System.Windows.Forms.Label label50;
     }
 }
 

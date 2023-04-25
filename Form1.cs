@@ -312,6 +312,7 @@ namespace TrabajoPracticoFinal
             // Set Random Clima
             // Se multiplica por 100 para truncar el random a 2 cifras decimales. Y se vuelve a dividir por 100. Solucion a no redondear los randoms.
             filaSimulacion.setRndClima(Math.Truncate(rnd.NextDouble()*100)/100);
+
             // Set Clima, Utilizando funcion getClima(randomCLima) y el randomClima = filaSimulacion.getRndClima();
             filaSimulacion.setClima(getClima(filaSimulacion.getRndClima()));
 
